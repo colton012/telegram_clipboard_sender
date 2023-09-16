@@ -6,8 +6,13 @@ from aiogram.utils import executor
 from PIL import ImageGrab
 import io
 import hashlib
+import configparser 
 
-from config import TOKEN, USERID
+config = configparser.ConfigParser()  
+config.read('config.ini') 
+
+TOKEN = config['main']['TOKEN']
+USERID = int(config['main']['USERID'])
 
 bot = Bot(token=TOKEN)
 dp = Dispatcher(bot)
